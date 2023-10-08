@@ -135,8 +135,8 @@
 
 
 <div align="center" style="overflow-x:auto;background-color: #00D9A5; padding:70px;">
-    <table>
-        <tr style="background-color: black;padding: 10px; color: white;" align="center">
+    <table style="border: 1px solid black;">
+        <tr style="background-color: black;padding: 10px; color: white;text-align: center" >
             <th style="padding: 10px">DOCTOR</th>
             <th style="padding: 10px">DATE</th>
             <th style="padding: 10px">MESSAGE</th>
@@ -145,12 +145,12 @@
             <th style="padding: 10px">CANCEL APPOINMENT</th>
         </tr>
         @foreach($appoint as $appoints)
-            <tr>
-                <td style="padding: 10px; color: white">{{$appoints->doctor}}</td>
-                <td style="padding: 10px; color: white">{{$appoints->date}}</td>
-                <td style="padding: 10px; color: white">{{$appoints->message}}</td>
-                <td style="padding: 10px; color: white">{{$appoints->status}}</td>
-                <td><a  class="btn btn-danger" onclick="return confirm('delete this appoinment')" href="{{url('cancelappoinment',$appoints->id)}}">Cancel</a></td>
+            <tr style="text-align: center">
+                <td style="padding: 10px; color: black;border: 1px solid black;">{{$appoints->doctor}}</td>
+                <td style="padding: 10px; color: black;border: 1px solid black;">{{$appoints->date}}</td>
+                <td style="padding: 10px; color: black;border: 1px solid black;">{{$appoints->message}}</td>
+                <td style="padding: 10px; color: black;border: 1px solid black;">{{$appoints->status}}</td>
+                <td style="padding: 10px; color: black;border: 1px solid black;"><a  class="btn btn-danger" onclick="return confirm('delete this appoinment')" href="{{url('cancelappoinment',$appoints->id)}}">Cancel</a></td>
             </tr>
         @endforeach
 

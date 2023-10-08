@@ -6,13 +6,15 @@
   @include('admin.css')
 </head>
 <body>
-<div class="container-scroller">
-    @include('admin.sidebar')
 
-@include('admin.navbar')
+    @include('admin.sidebar')
+    <div class="container-fluid page-body-wrapper">
+
+    @include('admin.navbar')
 @include('admin.body')
+    </div>
 
 @include('admin.scripts')
-</div>
+
 </body>
 </html>
