@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('Phone')->nullable();
             $table->string('Speciality')->nullable();
             $table->string('Room')->nullable();
+
+
             $table->timestamps();
         });
     }
