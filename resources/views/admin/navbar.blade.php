@@ -8,15 +8,16 @@
                 <li>
                     <form>
                         <input style="color: black" type="text" placeholder="Search here....">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary">Search</button>
                     </form>
                 </li>
+
                 <li>
                     <div style="padding: 50px">
                         <a href="{{'chatify'}}">Message</a>
                     </div>
                 </li>
-
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
                 <li>
                     <x-app-layout>
 

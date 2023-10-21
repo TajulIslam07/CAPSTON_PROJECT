@@ -30,17 +30,17 @@
             @endif
             <form action="{{url('upload_doctor')}}" method="post" >
                 @csrf
-                <div style="padding:20px">
+                <div style="padding:20px;">
                     <label>Doctor Name:</label>
                     <input type="text" placeholder="Doctor" name="name">
                 </div>
-                <div style="padding:20px">
+                <div style="padding:20px;">
                     <label>Phone:</label>
                     <input type="number" placeholder="Number" name="number">
                 </div>
-                <div style="padding:20px">
+                <div style="padding:20px;">
                     <label>Speciality:</label>
-                    <select name="speciality">
+                    <select name="speciality" style="color: black;">
                         <option>--select--</option>
                         <option>Skin</option>
                         <option>Medicine</option>
@@ -49,7 +49,7 @@
 
                 </div>
 
-                <div style="padding:20px">
+                <div style="padding:20px;">
                     <label>Room no:</label>
                     <input type="text" placeholder="Room no" name="room">
                 </div>
