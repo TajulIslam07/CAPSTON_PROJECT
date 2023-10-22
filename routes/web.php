@@ -33,7 +33,9 @@ Route::get('/add_doctor', function () {
 });
 Route::post('/upload_doctor',[AdminController::class,'upload']);
 Route::post('/appoinment',[HomeController::class,'appoinment']);
+Route::get('/make_appointment',[HomeController::class,'makeappoinment']);
 Route::get('/myappoinment',[HomeController::class,'myappoinment']);
+Route::get('/doctor',[HomeController::class,'doctor']);
 Route::get('/cancelappoinment/{id}',[HomeController::class,'cancelappoinment']);
 Route::get('/showappointment',[AdminController::class,'showappointment']);
 Route::get('/approved/{id}',[AdminController::class,'approved']);
