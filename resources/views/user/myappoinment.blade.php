@@ -70,73 +70,14 @@
         </div> <!-- .container -->
     </div> <!-- .topbar -->
 
-    <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
-        <div class="container">
-            <a class="navbar-brand" href="#"><span class="text-primary">One</span>-Health</a>
-
-            <form action="#">
-                <div class="input-group input-navbar">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="icon-addon1"><span class="mai-search"></span></span>
-                    </div>
-                    <input type="text" class="form-control" placeholder="Enter keyword.." aria-label="Username" aria-describedby="icon-addon1">
-                </div>
-            </form>
-
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupport" aria-controls="navbarSupport" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupport">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{{url('/')}}">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.html">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="doctors.html">Doctors</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="blog.html">News</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
-                    </li>
-                    @if(Route::has('login'))
-                        @auth()
-
-                            <li class="nav-item">
-                                <a class="nav-link" style="background-color: greenyellow; color: white" href="{{url('myappoinment')}}">My Appoinment</a>
-                            </li>
-                            <x-app-layout>
-
-                            </x-app-layout>
-                        @else
-
-                            <li class="nav-item">
-                                <a class="btn btn-primary ml-lg-3" href="{{route('login')}}">Login</a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="btn btn-primary ml-lg-3" href="{{route('register')}}">Register</a>
-                            </li>
-                        @endauth
-                    @endif
-
-
-                </ul>
-            </div> <!-- .navbar-collapse -->
-        </div> <!-- .container -->
-    </nav>
+  @include('user.navbar')
 
 </header>
 
 
 <div align="center" style="overflow-x:auto;background-color: #00D9A5; padding:70px;">
-    <table>
-        <tr style="background-color: black;padding: 10px; color: white;" align="center">
+    <table style="border: 1px solid black;">
+        <tr style="background-color: black;padding: 10px; color: white;text-align: center" >
             <th style="padding: 10px">DOCTOR</th>
             <th style="padding: 10px">DATE</th>
             <th style="padding: 10px">MESSAGE</th>
@@ -145,12 +86,12 @@
             <th style="padding: 10px">CANCEL APPOINMENT</th>
         </tr>
         @foreach($appoint as $appoints)
-            <tr>
-                <td style="padding: 10px; color: white">{{$appoints->doctor}}</td>
-                <td style="padding: 10px; color: white">{{$appoints->date}}</td>
-                <td style="padding: 10px; color: white">{{$appoints->message}}</td>
-                <td style="padding: 10px; color: white">{{$appoints->status}}</td>
-                <td><a  class="btn btn-danger" onclick="return confirm('delete this appoinment')" href="{{url('cancelappoinment',$appoints->id)}}">Cancel</a></td>
+            <tr style="text-align: center">
+                <td style="padding: 10px; color: black;border: 1px solid black;">{{$appoints->doctor}}</td>
+                <td style="padding: 10px; color: black;border: 1px solid black;">{{$appoints->date}}</td>
+                <td style="padding: 10px; color: black;border: 1px solid black;">{{$appoints->message}}</td>
+                <td style="padding: 10px; color: black;border: 1px solid black;">{{$appoints->status}}</td>
+                <td style="padding: 10px; color: black;border: 1px solid black;"><a  class="btn btn-danger" onclick="return confirm('delete this appoinment')" href="{{url('cancelappoinment',$appoints->id)}}">Cancel</a></td>
             </tr>
         @endforeach
 

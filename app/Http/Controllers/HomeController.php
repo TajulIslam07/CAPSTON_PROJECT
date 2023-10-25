@@ -29,8 +29,8 @@ class HomeController extends Controller
         if (Auth::id()) {
             return redirect('home');
         } else {
-            $doctor = doctor::all();
-            return view('user.home', compact('doctor'));
+            $doctor=doctor::all();
+            return view('user.home',compact('doctor'));
         }
 
     }
@@ -53,7 +53,10 @@ class HomeController extends Controller
 
 
     }
-
+    public function makeappoinment(){
+        $doctor=doctor::all();
+        return view('user.make_appoinment',compact('doctor'));
+    }
     public function myappoinment(){
         if (Auth::id()){
             $userid=Auth::user()->id;
@@ -64,6 +67,10 @@ class HomeController extends Controller
             return redirect()->back();
         }
 
+    }
+    public function doctor(){
+        $doctor=doctor::all();
+        return view('user.view_doctor',compact('doctor'));
     }
 
     public function cancelappoinment($id){

@@ -33,6 +33,17 @@ Route::get('/add_doctor', function () {
 });
 Route::post('/upload_doctor',[AdminController::class,'upload']);
 Route::post('/appoinment',[HomeController::class,'appoinment']);
+Route::get('/make_appointment',[HomeController::class,'makeappoinment']);
 Route::get('/myappoinment',[HomeController::class,'myappoinment']);
+Route::get('/doctor',[HomeController::class,'doctor']);
 Route::get('/cancelappoinment/{id}',[HomeController::class,'cancelappoinment']);
+Route::get('/showappointment',[AdminController::class,'showappointment']);
+Route::get('/approved/{id}',[AdminController::class,'approved']);
+Route::get('/cancel/{id}',[AdminController::class,'cancel']);
+Route::get('/all_doctor',[AdminController::class,'alldoctor']);
+Route::get('/delete/{id}',[AdminController::class,'delete']);
+Route::get('/update/{id}',[AdminController::class,'update']);
+Route::post('/editdoctor/{id}',[AdminController::class,'edit']);
+
+
 

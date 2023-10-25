@@ -1,6 +1,6 @@
 <div class="page-section">
     <div class="container">
-        <h1 class="text-center wow fadeInUp">Make an Appointment</h1>
+        <p style="font-size: large;">Make an Appointment</p>
 
         <form class="main-form" action="{{url('appoinment')}}" method="POST">
             @csrf
@@ -28,7 +28,7 @@
                     <textarea name="message" id="message" class="form-control" rows="6" placeholder="Enter message.."></textarea>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary mt-3 wow zoomIn">Submit Request</button>
+            <button  style="background-color: #00D9A5;padding: 8px;border-radius: 8px;" type="submit">Submit Request</button>
         </form>
     </div>
 </div>
