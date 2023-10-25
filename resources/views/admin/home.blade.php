@@ -1,18 +1,24 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  @include('admin.css')
+
+
+    @include('admin.css')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style type="text/css">
+        label{
+            display: inline-block;
+            width: 200px;
+        }
+    </style>
 </head>
 <body>
 <div class="container-scroller">
     @include('admin.sidebar')
-
-@include('admin.navbar')
+    @include('admin.navbar')
 @include('admin.body')
+    @include('admin.scripts')
 
-@include('admin.scripts')
-</div>
 </body>
 </html>
+
