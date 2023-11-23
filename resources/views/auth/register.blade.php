@@ -30,17 +30,6 @@
                 <x-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
             </div>
 
-            <div  class="mt-4">
-                <select name="usertype" id="departement" class="custom-select">
-
-                        <option>Patient</option>
-                        <option>Doctor</option>
-                        <option>Admin</option>
-
-                </select>
-            </div>
-
-
             @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
                 <div class="mt-4">
                     <x-label for="terms">

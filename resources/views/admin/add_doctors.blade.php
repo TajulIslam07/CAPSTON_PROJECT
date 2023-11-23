@@ -12,6 +12,7 @@
          width: 200px;
      }
     </style>
+    <title>Admin Panel</title>
 </head>
 <body>
 <div class="container-scroller">
@@ -32,15 +33,24 @@
                 @csrf
                 <div style="padding:20px;">
                     <label>Doctor Name:</label>
-                    <input type="text" placeholder="Doctor" name="name">
+                    <input style="color: #0a0a0a;" type="text" placeholder="Doctor" name="name" required>
+                </div>
+
+                <div style="padding:20px;">
+                    <label>Email:</label>
+                    <input style="color: #0a0a0a;" type="email" placeholder="Email" name="email" required>
                 </div>
                 <div style="padding:20px;">
-                    <label>Phone:</label>
-                    <input type="number" placeholder="Number" name="number">
+                    <label>password:</label>
+                    <input style="color: #0a0a0a;" type="password" placeholder="Password" name="password" required>
+                </div>
+                <div style="padding:20px;">
+                    <label>Phone Number:</label>
+                    <input style="color: #0a0a0a;" type="number" placeholder="number" name="number" required>
                 </div>
                 <div style="padding:20px;">
                     <label>Speciality:</label>
-                    <select name="speciality" style="color: black;">
+                    <select name="speciality" style="color: black;" required>
                         <option>--select--</option>
                         <option>Skin</option>
                         <option>Medicine</option>
@@ -51,7 +61,7 @@
 
                 <div style="padding:20px;">
                     <label>Room no:</label>
-                    <input type="text" placeholder="Room no" name="room">
+                    <input style="color: #0a0a0a;" type="text" placeholder="Room no" name="room">
                 </div>
 
 

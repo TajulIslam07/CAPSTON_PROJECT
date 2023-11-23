@@ -36,27 +36,27 @@
                     @csrf
                     <div style="padding:20px">
                         <label>Doctor Name:</label>
-                        <input style="color: black"   name="name" value="{{$data->Doctor}}">
+                        <input style="color: black"   name="name" value="{{$data->Doctor}}" required>
                     </div>
                     <div style="padding:20px">
                         <label>Phone:</label>
-                        <input style="color: black"   name="number" value="{{$data->Phone}}">
+                        <input style="color: black"   name="number" value="{{$data->Phone}}" required>
                     </div>
                     <div style="padding:20px">
                         <label>Speciality:</label>
-                        <input style="color: black" name="speciality" value="{{$data->Speciality}}">
+                        <input style="color: black" name="speciality" value="{{$data->Speciality}}" required>
 
                     </div>
 
                     <div style="padding:20px">
                         <label>Room no:</label>
-                        <input style="color: black" name="room" value="{{$data->Room}}">
+                        <input style="color: black" name="room" value="{{$data->Room}}" required>
                     </div>
 
 
 
 
-                    <div style="padding:20px"><input class="btn btn-success" type="submit"></div>
+                    <div style="padding:20px"><input class="btn btn-success" onclick="return confirm('Are you sure to update doctor')" type="submit"></div>
 
 
                 </form>

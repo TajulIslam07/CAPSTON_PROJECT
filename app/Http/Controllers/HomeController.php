@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\user;
 use App\Models\Doctor;
 use App\Models\Appoinment;
+use App\Models\BloodDoner;
+use Illuminate\Support\Facades\Http;
+
 
 class HomeController extends Controller
 {
@@ -16,13 +20,21 @@ class HomeController extends Controller
             if (Auth::user()->usertype == '0') {
                 $doctor = doctor::all();
                 return view('user.home', compact('doctor'));
-            } else {
+            }
+            if(Auth::user()->usertype == '1'){
                 return view('admin.home');
             }
-        } else {
+            if(Auth::user()->usertype == '2'){
+
+                return view('doctor.home');
+            }
+        } else{
             return $this->redirect()->back();
         }
+
     }
+
+
 
     public function index()
     {
@@ -35,7 +47,7 @@ class HomeController extends Controller
 
     }
 
-    public function appoinment(Request $request)
+    public function appoinmenta(Request $request)
     {
         $data = new appoinment;
         $data->full_name = $request->name;
@@ -49,12 +61,14 @@ class HomeController extends Controller
             $data->user_id = Auth::user()->id;
         }
         $data->save();
+
         return redirect()->back()->with('message','Appoinment is successfull,we will contact you soon');
 
 
     }
     public function makeappoinment(){
         $doctor=doctor::all();
+
         return view('user.make_appoinment',compact('doctor'));
     }
     public function myappoinment(){
@@ -79,4 +93,42 @@ class HomeController extends Controller
        return redirect()->back();
 
     }
+    public function bloodbank(){
+
+            $data=BloodDoner::all();
+
+            return view('user.bloodbank',compact('data'));
+
+
+
+    }
+    public function blooddonate(){
+        return view('user.donate');
+    }
+    public function form(Request $request){
+        $data=new blooddoner;
+        $data->name=$request->name;
+        $data->number=$request->number;
+        $data->bloodGroup=$request->group;
+        $data->address=$request->address;
+        $data->message=$request->message;
+        $data->save();
+        return redirect('/home')->with('message','Doner Added');
+
+    }
+    public function srch(){
+        if (request('search')) {
+            $search=request('search');
+            $data = BloodDoner::where('bloodGroup',$search)->get();
+
+            return view('user.bloodbank',compact('data'));
+        } else {
+            $data=BloodDoner::all();
+
+            return view('user.bloodbank',compact('data'));
+
+        }
+
+    }
+
 }

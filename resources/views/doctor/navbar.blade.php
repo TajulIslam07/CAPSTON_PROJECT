@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
     <div class="container">
-        <a class="navbar-brand" href="#"><span class="text-primary">Health</span>Box</a>
+        <a class="navbar-brand" href="#"><span class="text-primary">One</span>-Health</a>
 
         <form action="#">
             <div class="input-group input-navbar">
@@ -21,13 +21,13 @@
                     <a class="nav-link" href="{{url('/')}}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="about.html">About Us</a>
+                    <a class="nav-link" href="#">About Us</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{'doctor'}}">Doctors</a>
+                    <a class="nav-link" href="#">Patient</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{'blood_bank'}}">Blood Bank</a>
+                    <a class="nav-link" href="#">Blood Bank</a>
                 </li>
 
 
@@ -37,10 +37,7 @@
                             <a class="nav-link"  style="background-color: blueviolet; color: white;"href="{{'chatify'}}">Message</a>
                         </li>
                         &nbsp;
-                        &nbsp;
-                        <li class="nav-item">
-                            <a class="nav-link" style="background-color: greenyellow; color: white;" href="{{url('myappoinment')}}">My Appoinment</a>
-                        </li>
+
                         <x-app-layout>
 
                         </x-app-layout>

@@ -14,6 +14,7 @@
 <header>
     @include('user.navbar')
 </header>
+
 <div class="h-100 d-flex align-items-center justify-content-center">
 
  <a href="{{'make_appointment'}}"> <label style="padding: 10px;font-size: larger;background-color: greenyellow;display: flex">MAKE AN APPOINTMENT</label></a>

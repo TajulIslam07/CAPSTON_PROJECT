@@ -14,7 +14,7 @@
     <div align="center" style="overflow-x:auto;background-color: #00D9A5; padding:70px;">
         <table style="border: 1px solid black;">
             <tr style="background-color: black;padding: 10px; color: white;text-align: center" >
-                <th style="padding: 10px">Customer name</th>
+                <th style="padding: 10px">Patient name</th>
                 <th style="padding: 10px">Email</th>
                 <th style="padding: 10px">Phone</th>
                 <th style="padding: 10px">Doctor name</th>

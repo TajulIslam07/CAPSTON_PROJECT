@@ -11,8 +11,15 @@
             width: 200px;
         }
     </style>
+    <title>Admin Panel</title>
 </head>
 <body>
+@if(session()->has('message'))
+    <script>
+        Swal.fire({
+            text:"{{session()->get('message')}}",
+        })
+    </script>
 <div class="container-scroller">
     @include('admin.sidebar')
     @include('admin.navbar')

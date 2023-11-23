@@ -5,27 +5,26 @@
                 <span class="mdi mdi-menu"></span>
             </button>
             <ul class="navbar-nav w-100">
-                <li>
-                    <form>
-                        <input style="color: black" type="text" placeholder="Search here....">
-                        <button type="submit" class="btn btn-primary">Search</button>
-                    </form>
-                </li>
+
 
                 <li>
                     <div style="padding: 50px">
                         <a href="{{'chatify'}}">Message</a>
                     </div>
                 </li>
-                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+
                 <li>
                     <x-app-layout>
 
                     </x-app-layout>
+
                 </li>
+
             </ul>
-            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+            <button  class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
                 <span class="mdi mdi-format-line-spacing"></span>
             </button>
+
+
 
     </nav>

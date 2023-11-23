@@ -17,7 +17,7 @@ use App\Http\Controllers\AdminController;
 
 
 Route::get('/',[HomeController::class,'index']);
-Route::get('/home',[HomeController::class,'redirect']);
+Route::get('/home',[HomeController::class,'redirect'])  ;
 
 Route::middleware([
     'auth:sanctum',
@@ -32,7 +32,7 @@ Route::get('/add_doctor', function () {
     return view('admin.add_doctors');
 });
 Route::post('/upload_doctor',[AdminController::class,'upload']);
-Route::post('/appoinment',[HomeController::class,'appoinment']);
+Route::post('/appoinment',[HomeController::class,'appoinmenta']);
 Route::get('/make_appointment',[HomeController::class,'makeappoinment']);
 Route::get('/myappoinment',[HomeController::class,'myappoinment']);
 Route::get('/doctor',[HomeController::class,'doctor']);
@@ -44,6 +44,13 @@ Route::get('/all_doctor',[AdminController::class,'alldoctor']);
 Route::get('/delete/{id}',[AdminController::class,'delete']);
 Route::get('/update/{id}',[AdminController::class,'update']);
 Route::post('/editdoctor/{id}',[AdminController::class,'edit']);
+
+Route::get('/blood_bank',[HomeController::class,'bloodbank']);
+Route::get('/donate_blood',[HomeController::class,'blooddonate']);
+Route::post('/form_req',[HomeController::class,'form']);
+Route::get('/search_blood',[HomeController::class,'srch']);
+
+
 
 
 
