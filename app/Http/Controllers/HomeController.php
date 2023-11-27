@@ -10,6 +10,7 @@ use App\Models\Doctor;
 use App\Models\Appoinment;
 use App\Models\BloodDoner;
 use Illuminate\Support\Facades\Http;
+use function Sodium\compare;
 
 
 class HomeController extends Controller
@@ -21,19 +22,18 @@ class HomeController extends Controller
                 $doctor = doctor::all();
                 return view('user.home', compact('doctor'));
             }
-            if(Auth::user()->usertype == '1'){
+            if (Auth::user()->usertype == '1') {
                 return view('admin.home');
             }
-            if(Auth::user()->usertype == '2'){
+            if (Auth::user()->usertype == '2') {
 
                 return view('doctor.home');
             }
-        } else{
+        } else {
             return $this->redirect()->back();
         }
 
     }
-
 
 
     public function index()
@@ -41,8 +41,8 @@ class HomeController extends Controller
         if (Auth::id()) {
             return redirect('home');
         } else {
-            $doctor=doctor::all();
-            return view('user.home',compact('doctor'));
+            $doctor = doctor::all();
+            return view('user.home', compact('doctor'));
         }
 
     }
@@ -62,73 +62,92 @@ class HomeController extends Controller
         }
         $data->save();
 
-        return redirect()->back()->with('message','Appoinment is successfull,we will contact you soon');
+        return redirect()->back()->with('message', 'Appoinment is successfull,we will contact you soon');
 
 
     }
-    public function makeappoinment(){
-        $doctor=doctor::all();
 
-        return view('user.make_appoinment',compact('doctor'));
+    public function makeappoinment()
+    {
+        $doctor = doctor::all();
+
+        return view('user.make_appoinment', compact('doctor'));
     }
-    public function myappoinment(){
-        if (Auth::id()){
-            $userid=Auth::user()->id;
-            $appoint=appoinment::where('user_id',$userid)->get();
 
-            return view('user.myappoinment',compact('appoint'));
-        }else{
+    public function myappoinment()
+    {
+        if (Auth::id()) {
+            $userid = Auth::user()->id;
+            $appoint = appoinment::where('user_id', $userid)->get();
+
+            return view('user.myappoinment', compact('appoint'));
+        } else {
             return redirect()->back();
         }
 
     }
-    public function doctor(){
-        $doctor=doctor::all();
-        return view('user.view_doctor',compact('doctor'));
+
+    public function doctor()
+    {
+        $doctor = doctor::all();
+        return view('user.view_doctor', compact('doctor'));
     }
 
-    public function cancelappoinment($id){
-       $data=appoinment::find($id);
-       $data->delete();
-       return redirect()->back();
+    public function cancelappoinment($id)
+    {
+        $data = appoinment::find($id);
+        $data->delete();
+        return redirect()->back();
 
     }
-    public function bloodbank(){
 
-            $data=BloodDoner::all();
+    public function bloodbank()
+    {
 
-            return view('user.bloodbank',compact('data'));
+        $data = BloodDoner::all();
 
+        return view('user.bloodbank', compact('data'));
 
 
     }
-    public function blooddonate(){
+
+    public function blooddonate()
+    {
         return view('user.donate');
     }
-    public function form(Request $request){
-        $data=new blooddoner;
-        $data->name=$request->name;
-        $data->number=$request->number;
-        $data->bloodGroup=$request->group;
-        $data->address=$request->address;
-        $data->message=$request->message;
+
+    public function form(Request $request)
+    {
+        $data = new blooddoner;
+        $data->name = $request->name;
+        $data->number = $request->number;
+        $data->bloodGroup = $request->group;
+        $data->address = $request->address;
+        $data->message = $request->message;
         $data->save();
-        return redirect('/home')->with('message','Doner Added');
+        return redirect('/home')->with('message', 'Doner Added');
 
     }
-    public function srch(){
+
+    public function srch()
+    {
         if (request('search')) {
-            $search=request('search');
-            $data = BloodDoner::where('bloodGroup',$search)->get();
+            $search = request('search');
+            $data = BloodDoner::where('bloodGroup', $search)->get();
+            if (count($data) > 0) {
+                return view('user.bloodbank', compact('data'));
+            } elseif(count($data) <= 0){
+                return redirect()->back()->with('message', 'Doner Not Found');
+            }
+        }
+            else {
+                $data = BloodDoner::all();
 
-            return view('user.bloodbank',compact('data'));
-        } else {
-            $data=BloodDoner::all();
+                return view('user.bloodbank', compact('data'));
 
-            return view('user.bloodbank',compact('data'));
+            }
 
         }
 
     }
 
-}
